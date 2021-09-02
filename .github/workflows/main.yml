@@ -1,0 +1,34 @@
+name: Manually Deploy to heroku
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
+          docker_heroku_process_type: web
+          stack: "container"
+          region: "eu"
+        env:
+          HD_API_ID: ${{secrets.API_ID}}
+          HD_API_HASH: ${{secrets.API_HASH}}
+          HD_TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}}
+          HD_SAVE_THUMBNAIL: ${{secrets.SAVE_THUMBNAIL}}
+          HD_PYTDL_COMMAND: ${{secrets.PYTDL_COMMAND}}
+          HD_OWNER_ID: ${{secrets.OWNER_ID}}
+          HD_ARIA_TWO_STARTED_PORT: ${{secrets.ARIA_TWO_STARTED_PORT}}
+          HD_AUTH_CHANNEL: ${{secrets.AUTH_CHANNEL}}
+          HD_CHUNK_SIZE: ${{secrets.CHUNK_SIZE}}
+          HD_CLEAR_THUMBNAIL: ${{secrets.CLEAR_THUMBNAIL}}
+          HD_CUSTOM_FILE_NAME: ${{secrets.CUSTOM_FILE_NAME}}
+          HD_EDIT_SLEEP_TIME_OUT: ${{secrets.EDIT_SLEEP_TIME_OUT}}
+          HD_ENV: ${{secrets.ENV}}
+          HD_LEECH_COMMAND: ${{secrets.LEECH_COMMAND}}
+          HD_YTDL_COMMAND: ${{secrets.YTDL_COMMAND}}
