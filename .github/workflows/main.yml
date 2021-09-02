@@ -17,7 +17,7 @@ jobs:
           stack: "container"
           region: "eu"
         env:
-          HD_API_ID: ${{secrets.API_ID}}
+          HD_APP_ID: ${{secrets.APP_ID}}
           HD_API_HASH: ${{secrets.API_HASH}}
           HD_TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}}
           HD_SAVE_THUMBNAIL: ${{secrets.SAVE_THUMBNAIL}}
